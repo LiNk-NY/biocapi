@@ -1,0 +1,15 @@
+Package: biocapi
+Title: Query the Bioconductor API service
+Version: 0.99.0
+Authors@R: 
+    person("Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu", c("aut", "cre"))
+Description: The package provides functions for working with the Bioconductor
+  API service. It queries data from the VIEWS biocViews file, and the build
+  status and report data files.
+License: Artistic-2.0 
+Imports:
+    BiocPkgTools,
+    httr2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
