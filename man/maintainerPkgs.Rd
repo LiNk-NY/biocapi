@@ -11,8 +11,15 @@ maintainerPkgs(
 )
 }
 \arguments{
+\item{api}{\code{character(1)} The base URL for the Bioconductor API (default is a
+local test server)}
+
 \item{main}{\code{character(1)} A regex string to search for in the \code{Author} and
 \code{Maintainer} fields in the \code{VIEWS} data}
+
+\item{version}{\code{package_version} The Bioconductor version to use for
+\code{biocMaintained} function corresponding to the list of packages associated
+with the given maintainer.}
 }
 \value{
 A \code{data.frame} with the list of packages maintained by the specified

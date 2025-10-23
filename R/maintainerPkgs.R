@@ -3,6 +3,9 @@
 #' This function queries the Bioconductor API to retrieve a list of packages
 #' maintained by a specified maintainer.
 #'
+#' @param api `character(1)` The base URL for the Bioconductor API (default is a
+#'   local test server)
+#'
 #' @param main `character(1)` A regex string to search for in the `Author` and
 #'   `Maintainer` fields in the `VIEWS` data
 #'
