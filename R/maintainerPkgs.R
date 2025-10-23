@@ -6,6 +6,10 @@
 #' @param main `character(1)` A regex string to search for in the `Author` and
 #'   `Maintainer` fields in the `VIEWS` data
 #'
+#' @param version `package_version` The Bioconductor version to use for
+#'   `biocMaintained` function corresponding to the list of packages associated
+#'   with the given maintainer.
+#'
 #' @importFrom httr2 request req_perform resp_body_json
 #' @importFrom BiocManager version
 #' @importFrom BiocBaseUtils isScalarCharacter

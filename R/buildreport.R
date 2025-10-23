@@ -6,13 +6,6 @@
 #'
 #' @inheritParams maintainerPkgs
 #'
-#' @param api `character(1)` The base URL for the Bioconductor API (default is a
-#'   local test server)
-#'
-#' @param version `package_version`  The Bioconductor version to use for
-#'   `biocMaintained` function corresponding to the list of packages associated
-#'   with the given maintainer.
-#'
 #' @importFrom httr2 request req_perform resp_body_json
 #' @importFrom BiocPkgTools biocMaintained
 #' @importFrom BiocBaseUtils isScalarCharacter

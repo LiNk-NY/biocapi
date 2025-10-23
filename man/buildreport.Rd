@@ -30,6 +30,6 @@ Queries the Bioconductor API to retrieve build reports for all packages
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
-buildreport("maintainer@bioconductor.org", BiocManager::version())
+buildreport(main = "maintainer@bioconductor.org")
 \dontshow{\}) # examplesIf}
 }

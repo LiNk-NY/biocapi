@@ -10,6 +10,12 @@ buildstatus(main = "maintainer@bioconductor.org")
 \item{main}{\code{character(1)} A regex string to search for in the \code{Author} and
 \code{Maintainer} fields in the \code{VIEWS} data}
 }
+\value{
+A \code{data.frame} with the build status information for all packages
+associated with the specified maintainer. The data frame contains columns
+such as \code{pkg}, \code{node}, \code{stage}, and \code{result} corresponding to the
+Bioconductor Build System (BBS) builders, stages, and results.
+}
 \description{
 This function queries the Bioconductor API to retrieve build status
 information for all packages maintained by a specified maintainer.
