@@ -8,6 +8,8 @@ Description: The package provides functions for working with the Bioconductor
   status and report data files.
 License: Artistic-2.0 
 Imports:
+    BiocBaseUtils,
+    BiocManager,
     BiocPkgTools,
     httr2
 Encoding: UTF-8

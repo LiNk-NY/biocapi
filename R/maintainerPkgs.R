@@ -7,6 +7,7 @@
 #'   `Maintainer` fields in the `VIEWS` data
 #'
 #' @importFrom httr2 request req_perform resp_body_json
+#' @importFrom BiocManager version
 #' @importFrom BiocBaseUtils isScalarCharacter
 #'
 #' @returns A `data.frame` with the list of packages maintained by the specified
