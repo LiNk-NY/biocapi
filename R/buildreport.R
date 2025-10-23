@@ -32,11 +32,7 @@ buildreport <- function(
         isScalarCharacter(api),
         isScalarCharacter(main)
     )
-    pkgs <- maintainerPkgs(main = main)[["Package"]]
-    ## nasty hack to avoid including shinybiocloader package
-    ## databases should be updated on the fly
-    if (grepl("marcel", main, ignore.case = TRUE))
-        pkgs <- pkgs[pkgs != "shinybiocloader"]
+    pkgs <- maintainerPkgs(main = main, version = version)[["Package"]]
     pkgList <- lapply(
         pkgs,
         function(pkg) {
