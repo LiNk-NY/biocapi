@@ -17,16 +17,17 @@
 #' maintainerPkgs(main = "maintainer@bioconductor.org")
 #' @export
 maintainerPkgs <- function(
-    main = "maintainer@bioconductor.org"
+    api = .TEST_API_URL,
+    main = "maintainer@bioconductor.org",
+    version = BiocManager::version()
 ) {
     stopifnot(
-        isScalarCharacter(main)
+        isScalarCharacter(api),
+        isScalarCharacter(main),
+        is.package_version(version) || is.character(version)
     )
-    req_url <- paste0(.TEST_API_URL, "views/", main)
-    res <- request(req_url) |>
+    paste0(api, "views/", main) |>
+        request() |>
         req_perform() |>
-        resp_body_json()
-    return(
-        do.call(rbind.data.frame, res)
-    )
+        resp_body_json(simplifyVector = TRUE)
 }
