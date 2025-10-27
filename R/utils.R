@@ -93,3 +93,28 @@ biocpkgsversions <- function(
         req_perform() |>
         resp_body_json(simplifyVector=TRUE)
 }
+
+#' @rdname pkgMetadata
+#'
+#' @returns `biocpkgstypes`: A `data.frame` of the provided packages and their
+#'   types within the specified Bioconductor version.
+#'
+#' @examplesIf interactive()
+#' biocpkgstypes(pkgs = c("BiocPkgTools", "curatedTCGAData"))
+#' @export
+biocpkgstypes <- function(
+    api = .TEST_API_URL,
+    pkgs,
+    version = BiocManager::version()
+) {
+    stopifnot(
+        isScalarCharacter(api),
+        isCharacter(pkgs)
+    )
+    paste0(api, "packages/types") |>
+        request() |>
+        req_headers(`Content-Type` = "text/plain") |>
+        req_body_raw(paste(pkgs, collapse = ",")) |>
+        req_perform() |>
+        resp_body_json(simplifyVector = TRUE)
+}

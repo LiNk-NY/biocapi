@@ -5,6 +5,7 @@
 \alias{biocpkgversion}
 \alias{biocpkgtype}
 \alias{biocpkgsversions}
+\alias{biocpkgstypes}
 \title{Get Bioconductor Package Version, Type, and other metadata}
 \usage{
 biocpkgversion(api = .TEST_API_URL, pkg, version = BiocManager::version())
@@ -12,6 +13,8 @@ biocpkgversion(api = .TEST_API_URL, pkg, version = BiocManager::version())
 biocpkgtype(api = .TEST_API_URL, pkg, version = BiocManager::version())
 
 biocpkgsversions(api = .TEST_API_URL, pkgs, version = BiocManager::version())
+
+biocpkgstypes(api = .TEST_API_URL, pkgs, version = BiocManager::version())
 }
 \arguments{
 \item{api}{\code{character(1)} The base URL for the Bioconductor API (default is a
@@ -33,6 +36,9 @@ specified Bioconductor package.
 
 \code{biocpkgsversions}: A \code{data.frame} of the provided packages and
 their versions within the specified Bioconductor version.
+
+\code{biocpkgstypes}: A \code{data.frame} of the provided packages and their
+types within the specified Bioconductor version.
 }
 \description{
 This set of functions queries the Bioconductor API to retrieve
@@ -48,5 +54,8 @@ biocpkgtype(pkg = "BiocPkgTools")
 \dontshow{\}) # examplesIf}
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 biocpkgsversions(pkgs = c("BiocPkgTools", "GenomicRanges"))
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+biocpkgstypes(pkgs = c("BiocPkgTools", "curatedTCGAData"))
 \dontshow{\}) # examplesIf}
 }
