@@ -4,11 +4,14 @@
 \alias{pkgMetadata}
 \alias{biocpkgversion}
 \alias{biocpkgtype}
+\alias{biocpkgsversions}
 \title{Get Bioconductor Package Version, Type, and other metadata}
 \usage{
 biocpkgversion(api = .TEST_API_URL, pkg, version = BiocManager::version())
 
 biocpkgtype(api = .TEST_API_URL, pkg, version = BiocManager::version())
+
+biocpkgsversions(api = .TEST_API_URL, pkgs, version = BiocManager::version())
 }
 \arguments{
 \item{api}{\code{character(1)} The base URL for the Bioconductor API (default is a
@@ -27,6 +30,9 @@ of the specified Bioconductor package.
 
 \code{biocpkgtype}: A \code{character(1)} string representing the type of the
 specified Bioconductor package.
+
+\code{biocpkgsversions}: A \code{data.frame} of the provided packages and
+their versions within the specified Bioconductor version.
 }
 \description{
 This set of functions queries the Bioconductor API to retrieve
@@ -39,5 +45,8 @@ biocpkgversion(pkg = "BiocPkgTools")
 \dontshow{\}) # examplesIf}
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 biocpkgtype(pkg = "BiocPkgTools")
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+biocpkgsversions(pkgs = c("BiocPkgTools", "GenomicRanges"))
 \dontshow{\}) # examplesIf}
 }

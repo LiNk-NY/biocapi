@@ -39,6 +39,7 @@ biocpkgversion <- function(
 }
 
 #' @rdname pkgMetadata
+#'
 #' @returns `biocpkgtype`: A `character(1)` string representing the type of the
 #'   specified Bioconductor package.
 #'
@@ -63,4 +64,32 @@ biocpkgtype <- function(
         resp_body_json(simplifyVector = TRUE) |>
         unlist() |>
         unname()
+}
+
+#' @rdname pkgMetadata
+#'
+#' @importFrom BiocBaseUtils isCharacter
+#'
+#' @returns `biocpkgsversions`: A `data.frame` of the provided packages and
+#' their versions within the specified Bioconductor version.
+#'
+#' @examplesIf interactive()
+#' biocpkgsversions(pkgs = c("BiocPkgTools", "GenomicRanges"))
+#' @export
+biocpkgsversions <- function(
+    api = .TEST_API_URL,
+    pkgs,
+    version = BiocManager::version()
+) {
+    stopifnot(
+        isScalarCharacter(api),
+        isCharacter(pkgs)
+    )
+
+    paste0(api, "packages/versions") |>
+        request() |>
+        req_headers(`Content-Type`="text/plain") |>
+        req_body_raw(paste(pkgs, collapse=",")) |>
+        req_perform() |>
+        resp_body_json(simplifyVector=TRUE)
 }
