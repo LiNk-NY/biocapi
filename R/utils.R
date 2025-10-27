@@ -88,10 +88,10 @@ biocpkgsversions <- function(
 
     paste0(api, "packages/versions") |>
         request() |>
-        req_headers(`Content-Type`="text/plain") |>
-        req_body_raw(paste(pkgs, collapse=",")) |>
+        req_headers(`Content-Type` = "text/plain") |>
+        req_body_raw(paste(pkgs, collapse = ",")) |>
         req_perform() |>
-        resp_body_json(simplifyVector=TRUE)
+        resp_body_json(simplifyVector = TRUE)
 }
 
 #' @rdname pkgMetadata
