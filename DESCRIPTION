@@ -1,6 +1,6 @@
 Package: biocapi
 Title: Query the Bioconductor API service
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: 
     person("Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu", c("aut", "cre"))
 Description: The package provides functions for working with the Bioconductor
@@ -15,3 +15,4 @@ Imports:
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Date: 2025-10-27
