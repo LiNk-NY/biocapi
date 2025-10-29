@@ -22,7 +22,7 @@ local test server)}
 with the given maintainer.}
 }
 \value{
-A \code{data.frame} with the list of packages maintained by the specified
+A \code{tibble} with the list of packages maintained by the specified
 maintainer. The data frame contains columns such as \code{Package}, \code{Version},
 \code{Author}, and \code{Maintainer}
 }
