@@ -86,7 +86,7 @@ biocpkgsversions <- function(
         isCharacter(pkgs)
     )
 
-    paste0(api, "packages/versions") |>
+    paste0(api, "packages/version") |>
         request() |>
         req_headers(`Content-Type` = "text/plain") |>
         req_body_raw(paste(pkgs, collapse = ",")) |>
@@ -113,7 +113,7 @@ biocpkgstypes <- function(
         isScalarCharacter(api),
         isCharacter(pkgs)
     )
-    paste0(api, "packages/types") |>
+    paste0(api, "packages/type") |>
         request() |>
         req_headers(`Content-Type` = "text/plain") |>
         req_body_raw(paste(pkgs, collapse = ",")) |>
