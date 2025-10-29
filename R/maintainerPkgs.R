@@ -22,7 +22,8 @@
 #'   `Author`, and `Maintainer`
 #'
 #' @examplesIf interactive()
-#' maintainerPkgs(main = "maintainer@bioconductor.org")
+#' maintainerPkgs(main = "maintainer@bioconductor.org") |>
+#'   head()
 #' @export
 maintainerPkgs <- function(
     api = .TEST_API_URL,

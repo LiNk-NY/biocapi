@@ -32,6 +32,7 @@ maintained by a specified maintainer.
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
-maintainerPkgs(main = "maintainer@bioconductor.org")
+maintainerPkgs(main = "maintainer@bioconductor.org") |>
+  head()
 \dontshow{\}) # examplesIf}
 }
