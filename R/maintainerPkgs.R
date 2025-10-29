@@ -35,8 +35,13 @@ maintainerPkgs <- function(
         isScalarCharacter(main),
         is.package_version(version) || is.character(version)
     )
-    paste0(api, "views/", main) |>
+    result <- paste0(api, "views/", main) |>
         request() |>
         req_perform() |>
         resp_body_json(simplifyVector = TRUE)
+
+    attr(result, "version") <- version
+    attr(result, "maintainer") <- main
+
+    result
 }
