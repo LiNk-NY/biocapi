@@ -99,6 +99,8 @@ biocpkgsversions <- function(
 #' @returns `biocpkgstypes`: A `data.frame` of the provided packages and their
 #'   types within the specified Bioconductor version.
 #'
+#' @importFrom httr2 request req_headers req_body_raw req_perform resp_body_json
+#'
 #' @examplesIf interactive()
 #' biocpkgstypes(pkgs = c("BiocPkgTools", "curatedTCGAData"))
 #' @export
