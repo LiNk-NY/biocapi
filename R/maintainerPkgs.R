@@ -38,7 +38,8 @@ maintainerPkgs <- function(
     result <- paste0(api, "views/", main) |>
         request() |>
         req_perform() |>
-        resp_body_json(simplifyVector = TRUE)
+        resp_body_json(simplifyVector = TRUE) |>
+        tibble::as_tibble()
 
     attr(result, "version") <- version
     attr(result, "maintainer") <- main
