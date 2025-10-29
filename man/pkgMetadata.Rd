@@ -34,11 +34,11 @@ of the specified Bioconductor package.
 \code{biocpkgtype}: A \code{character(1)} string representing the type of the
 specified Bioconductor package.
 
-\code{biocpkgsversions}: A \code{data.frame} of the provided packages and
-their versions within the specified Bioconductor version.
+\code{biocpkgsversions}: A \code{character()} vector of the package versions
+within the specified Bioconductor version.
 
-\code{biocpkgstypes}: A \code{data.frame} of the provided packages and their
-types within the specified Bioconductor version.
+\code{biocpkgstypes}: A \code{character()} vector of the package types within
+the specified Bioconductor version.
 }
 \description{
 This set of functions queries the Bioconductor API to retrieve

@@ -70,8 +70,8 @@ biocpkgtype <- function(
 #'
 #' @importFrom BiocBaseUtils isCharacter
 #'
-#' @returns `biocpkgsversions`: A `data.frame` of the provided packages and
-#' their versions within the specified Bioconductor version.
+#' @returns `biocpkgsversions`: A `character()` vector of the package versions
+#'   within the specified Bioconductor version.
 #'
 #' @examplesIf interactive()
 #' biocpkgsversions(pkgs = c("BiocPkgTools", "GenomicRanges"))
@@ -91,13 +91,16 @@ biocpkgsversions <- function(
         req_headers(`Content-Type` = "text/plain") |>
         req_body_raw(paste(pkgs, collapse = ",")) |>
         req_perform() |>
-        resp_body_json(simplifyVector = TRUE)
+        resp_body_json(simplifyVector = TRUE) |>
+        dplyr::select("Version") |>
+        unlist() |>
+        unname()
 }
 
 #' @rdname pkgMetadata
 #'
-#' @returns `biocpkgstypes`: A `data.frame` of the provided packages and their
-#'   types within the specified Bioconductor version.
+#' @returns `biocpkgstypes`: A `character()` vector of the package types within
+#'   the specified Bioconductor version.
 #'
 #' @importFrom httr2 request req_headers req_body_raw req_perform resp_body_json
 #'
@@ -118,5 +121,8 @@ biocpkgstypes <- function(
         req_headers(`Content-Type` = "text/plain") |>
         req_body_raw(paste(pkgs, collapse = ",")) |>
         req_perform() |>
-        resp_body_json(simplifyVector = TRUE)
+        resp_body_json(simplifyVector = TRUE) |>
+        dplyr::select("pkgType") |>
+        unlist() |>
+        unname()
 }
