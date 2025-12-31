@@ -28,13 +28,16 @@
 buildreport <- function(
     api = .TEST_API_URL,
     main = "maintainer@bioconductor.org",
-    version = BiocManager::version()
+    version = BiocManager::version(),
+    pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 ) {
     stopifnot(
         isScalarCharacter(api),
         isScalarCharacter(main)
     )
-    pkgs <- maintainerPkgs(main = main, version = version)[["Package"]]
+    pkgs <- maintainerPkgs(
+        main = main, version = version, pkgType = pkgType
+    )[["Package"]]
     pkgList <- lapply(pkgs, .checkres_pkg)
     do.call(rbind.data.frame, pkgList)
 }

@@ -7,7 +7,8 @@
 maintainerPkgs(
   api = .TEST_API_URL,
   main = "maintainer@bioconductor.org",
-  version = BiocManager::version()
+  version = BiocManager::version(),
+  pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 )
 }
 \arguments{
@@ -20,6 +21,10 @@ local test server)}
 \item{version}{\code{package_version} The Bioconductor version to use for
 \code{biocMaintained} function corresponding to the list of packages associated
 with the given maintainer.}
+
+\item{pkgType}{\code{character()} Any of "software", "data-experiment",
+"data-annotation", or "workflows" indicating the type of Bioconductor
+packages filter by.}
 }
 \value{
 A \code{tibble} with the list of packages maintained by the specified

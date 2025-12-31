@@ -4,11 +4,23 @@
 \alias{buildstatus}
 \title{Get Build Status for a Maintainer's Packages}
 \usage{
-buildstatus(main = "maintainer@bioconductor.org")
+buildstatus(
+  main = "maintainer@bioconductor.org",
+  version = BiocManager::version(),
+  pkgType = c("software", "data-experiment", "data-annotation", "workflows")
+)
 }
 \arguments{
 \item{main}{\code{character(1)} A regex string to search for in the \code{Author} and
 \code{Maintainer} fields in the \code{VIEWS} data}
+
+\item{version}{\code{package_version} The Bioconductor version to use for
+\code{biocMaintained} function corresponding to the list of packages associated
+with the given maintainer.}
+
+\item{pkgType}{\code{character()} Any of "software", "data-experiment",
+"data-annotation", or "workflows" indicating the type of Bioconductor
+packages filter by.}
 }
 \value{
 A \code{data.frame} with the build status information for all packages

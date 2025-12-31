@@ -16,7 +16,9 @@
 #' buildstatus(main = "maintainer@bioconductor.org")
 #' @export
 buildstatus <- function(
-    main = "maintainer@bioconductor.org"
+    main = "maintainer@bioconductor.org",
+    version = BiocManager::version(),
+    pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 ) {
     paste0(.TEST_API_URL, "checkResults/maintainer/", main) |>
         request() |>

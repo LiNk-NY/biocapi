@@ -13,9 +13,13 @@
 #'   `biocMaintained` function corresponding to the list of packages associated
 #'   with the given maintainer.
 #'
+#' @param pkgType `character()` Any of "software", "data-experiment",
+#'   "data-annotation", or "workflows" indicating the type of Bioconductor
+#'   packages filter by.
+#'
 #' @importFrom httr2 request req_perform resp_body_json
 #' @importFrom BiocManager version
-#' @importFrom BiocBaseUtils isScalarCharacter
+#' @importFrom BiocBaseUtils isScalarCharacter isCharacter
 #'
 #' @returns A `tibble` with the list of packages maintained by the specified
 #'   maintainer. The data frame contains columns such as `Package`, `Version`,
@@ -28,12 +32,14 @@
 maintainerPkgs <- function(
     api = .TEST_API_URL,
     main = "maintainer@bioconductor.org",
-    version = BiocManager::version()
+    version = BiocManager::version(),
+    pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 ) {
     stopifnot(
         isScalarCharacter(api),
         isScalarCharacter(main),
-        is.package_version(version) || is.character(version)
+        is.package_version(version) || isCharacter(version),
+        isCharacter(pkgType)
     )
     result <- paste0(api, "views/", main) |>
         request() |>
