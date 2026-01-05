@@ -31,6 +31,7 @@ buildreport <- function(
     version = BiocManager::version(),
     pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 ) {
+    pkgType <- match.arg(pkgType, several.ok = TRUE)
     stopifnot(
         isScalarCharacter(api),
         isScalarCharacter(main)
