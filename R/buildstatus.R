@@ -24,5 +24,5 @@ buildstatus <- function(
         request() |>
         req_perform() |>
         resp_body_json() |>
-        do.call(what = rbind.data.frame, args = _)
+        dplyr::bind_rows()
 }
