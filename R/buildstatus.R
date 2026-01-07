@@ -5,7 +5,7 @@
 #'
 #' @inheritParams maintainerPkgs
 #'
-#' @importFrom httr2 request req_perform resp_body_json
+#' @importFrom httr2 request req_perform resp_body_json req_url_query
 #'
 #' @returns A `data.frame` with the build status information for all packages
 #'   associated with the specified maintainer. The data frame contains columns
@@ -20,8 +20,16 @@ buildstatus <- function(
     version = BiocManager::version(),
     pkgType = c("software", "data-experiment", "data-annotation", "workflows")
 ) {
+    if (missing(pkgType))
+        pkgType <- "software"
+    else
+        pkgType <- match.arg(pkgType, several.ok = TRUE)
+
     paste0(.TEST_API_URL, "checkResults/maintainer/", main) |>
         request() |>
+        req_url_query(
+            pkgType = paste(pkgType, collapse = ",")
+        ) |>
         req_perform() |>
         resp_body_json() |>
         dplyr::bind_rows()
